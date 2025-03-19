@@ -1,24 +1,24 @@
-.Nuvem{
- 
-  
-    max-width: 110%;
-    
+.Nuvem {
+  max-width: 110%;
 }
 
-.form-control{
-  background-color: #292C2D;
-  stroke: #292C2D;
+.form-control {
+  background-color: #292c2d;
+  stroke: none;
   max-width: 900px;
-  
+  height: 80px;
+}
+
+.corPesquisa {
+  background-color: #292c2d !important;
+}
+
+.outLine {
+  outline: none;
+  color: #a1a1a1;
 
 }
 
-
-
-
-
-body{
+body {
   background-color: #2e3234;
-
-  
-  }
+}
