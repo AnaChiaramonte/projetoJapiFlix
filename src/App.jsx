@@ -1,10 +1,29 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.js";
+import "./App.css"
+
+import Nuvem from "./assets/Design sem nome (11).png"
 import "./App.css";
 import Nuvem from "./assets/Design sem nome (9).png";
 import Footer from "./components/footer/Footer";
 
 const App = () => {
+
+
+
+  return (
+     <div id="app">
+    <img className="Nuvem" src={Nuvem} alt="" />
+   
+        <input className="form-control mt-n5 m-5"
+          
+          type="text"
+          placeholder="Pesquisa por filme..."
+        />
+    
+    </div>
+    
+  );
   return (
     <div id="app">
       <img className="Nuvem" src={Nuvem} alt="" />

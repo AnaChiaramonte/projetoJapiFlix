@@ -1,3 +1,24 @@
 .Nuvem{
-  max-width: 100%;
+ 
+  
+    max-width: 110%;
+    
 }
+
+.form-control{
+  background-color: #292C2D;
+  stroke: #292C2D;
+  max-width: 900px;
+  
+
+}
+
+
+
+
+
+body{
+  background-color: #2e3234;
+
+  
+  }
