@@ -44,6 +44,13 @@ const App = () => {
          
         />
       </div>
+      <MovieCards 
+  Title="Inception" 
+  Year="2010" 
+  Type="Movie" 
+  Poster="https://via.placeholder.com/300x450" 
+  imdbID="tt1375666"
+/>
 
     
   
