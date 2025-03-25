@@ -12,6 +12,19 @@ import Footer from "./components/footer/Footer";
   
 
 const App = () => {
+  const mudaTema = () => {
+    const tema = window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+    document.documentElement.setAttribute("data-bs-theme", tema);
+  };
+  mudaTema();
+
+
+  // Listen for changes in the color scheme
+  window
+    .matchMedia("(prefers-color-scheme: dark)")
+    .addEventListener("change", mudaTema);
 
   const [search, setSearch] = useState("");
   const [movies, setMovies] = useState([]);
