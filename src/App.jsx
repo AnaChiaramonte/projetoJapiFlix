@@ -6,15 +6,11 @@ import lupa from "./assets/Lupa.svg";
 import MovieCards from "./movieCards/MovieCards";
 import Nuvem from "./assets/Nuvem.png"
 import Footer from "./components/footer/Footer";
-import Switch from "./components/switch/Switch"
+
     
   
 
 const App = () => {
-  const [isLight, setIsLight] = useState(true);
-  const troca = () => {
-    setIsLight((anterior) => !anterior);
-  };
 
   const [search, setSearch] = useState("");
   const [movies, setMovies] = useState([]);
@@ -38,8 +34,7 @@ const App = () => {
 
   // Aqui o return deve estar dentro da função App
   return (
-    <div id="App" className={isLight ? "light" : ""}>
-      <Switch troca={troca} isLight={isLight} />
+ 
       <div
         id="app"
         className="d-flex flex-column justify-content-center align-items-center w-100"
@@ -55,13 +50,8 @@ const App = () => {
           />
           <img onClick={() => searchMovies(search)} src={lupa} alt="" />
         </div>
-        <MovieCards 
-          Title="Inception" 
-          Year="2010" 
-          Type="Movie" 
-          Poster="https://via.placeholder.com/300x450" 
-          imdbID="tt1375666"
-        />
+        <div className="container mt-4">
+        <div className="row justify-content-center">
         {movies?.length > 0 ? (
           <div className="container">
             {movies.map((movie, index) => (
@@ -80,7 +70,8 @@ const App = () => {
           devL3={"https://github.com/PedroAraujosz"}
         />
       </div>
-    </div>
+   </div>
+   </div>
   );
 };
 
