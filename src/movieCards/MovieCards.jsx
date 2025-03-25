@@ -11,7 +11,7 @@ const MovieCard = (props) => {
 
   return (
     <>
-      <div className="card movie-card text-white bg-dark mt-5 w-25 h-22 " 
+      <div className="card movie-card text-white bg-dark mt-5 w-25 h-20 " 
       style={{
        
         margin: "1.5rem",
