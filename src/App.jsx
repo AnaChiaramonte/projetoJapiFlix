@@ -10,8 +10,8 @@ import Footer from "./components/footer/Footer";
 const App = () => {
   const [search, setSearch] = useState("");
   const [movies, setMovies] = useState([]);
-  // const apiKey = "";
-  // const apiUrl = ``;
+  const apiKey = "";
+  const apiUrl = ``;
   useEffect(() => {
     searchMovies("Batman");
   }, []);
