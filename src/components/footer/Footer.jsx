@@ -1,6 +1,18 @@
+import React, { useEffect, useState } from "react";
 import "./Footer.css";
 
 const Footer = (props) => {
+  const [apiResponse, setApiResponse] = useState(null);
+
+  useEffect(() => {
+    const options = { method: 'GET', headers: { accept: 'application/json' } };
+
+    fetch('https://api.themoviedb.org/3/authentication', options)
+      .then(res => res.json())
+      .then(res => setApiResponse(res))
+      .catch(err => console.error(err));
+  }, []);
+
   return (
     <footer className="d-flex gap-3 justify-content-center pb-2">
       Feito com 💖 por
