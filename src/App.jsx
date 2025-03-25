@@ -32,7 +32,6 @@ const App = () => {
           className="bg-transparent border-0 fs-2 outLine align-self-baseline w-100"
           type="text"
           onChange={(e) => setSearch(e.target.value)}
-          type="text"
           placeholder="Pesquisa por filme..."
         />
         <img

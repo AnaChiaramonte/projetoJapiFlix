@@ -27,7 +27,7 @@ const MovieDescription = ({ apiUrl, movieID, click }) => {
         {/* Informações do Filme */}
         <div className="p-3">
           <div className="d-flex align-items-center gap-2">
-            <img src={japiflix} alt="JapiFlix" style={{ width: "30px" }} />
+            <img src="" alt="JapiFlix" style={{ width: "30px" }} />
             <h2 className="fs-4 m-0">{movieDesc.Title}</h2>
           </div>
           <span className="badge bg-danger mt-2">{movieDesc.Type}</span>
