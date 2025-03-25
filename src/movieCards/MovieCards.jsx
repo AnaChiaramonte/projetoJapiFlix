@@ -11,7 +11,7 @@ const MovieCards = (props ) => {
   }
   return (
     <>
-    <div className="card movie-card text-white bg-dark col-md-4 mt-5 w-25 h-500"  onClick={toggleModal}>
+    <div className="card movie-card text-white bg-dark col-md-4 mt-5 w-25 h-500 align-items-md-center d-flex flex-wrap"  onClick={toggleModal}>
 
      <div className="card-body text-center" >
     <p>{props.Year}</p>
