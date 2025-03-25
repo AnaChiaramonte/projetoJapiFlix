@@ -2,7 +2,7 @@ import "./Footer.css";
 
 const Footer = (props) => {
   return (
-    <footer className="d-flex gap-3 justify-content-center pb-2">
+    <footer className="d-flex gap-3 justify-content-center pb-2 m-5">
       Feito com 💖 por
       <a href={props.devL1} target="_blank" rel="noopener noreferrer">
         {props.devn1}
