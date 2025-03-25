@@ -23,6 +23,8 @@ const App = () => {
     searchMovies("Batman");
   }, []);
 
+ 
+
   const searchMovies = async (title) => {
     const response = await fetch(`${apiUrl}&s=${title}`);
     const data = await response.json();
