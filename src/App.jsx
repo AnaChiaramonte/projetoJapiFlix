@@ -4,10 +4,9 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import lupa from "./assets/Lupa.svg";
 import MovieCards from "./movieCards/MovieCards";
-
-import Nuvem from "./assets/Design sem nome (11).png";
-
-
+import Nuvem from "./assets/Design_sem_nome_(11).png";
+import "./App.css"
+import Footer from "./components/footer/Footer";
 
 const App = () => {
   const [search, setSearch] = useState("");
@@ -53,10 +52,19 @@ const App = () => {
   imdbID="tt1375666"
 />
 
-      
-          </div>
-         
-  );
+    
+  
+    <Footer
+      devn1={"Ana Geremias"}
+      devL1={"https://github.com/Najul1a"}
+      devn2={"Ana Lopes"}
+      devL2={"https://github.com/AnaChiaramonte"}
+      devn3={"Pedro Araujo"}
+      devL3={"https://github.com/PedroAraujosz"}
+    />
+  </div>
+);
 };
+  
 
 export default App;
