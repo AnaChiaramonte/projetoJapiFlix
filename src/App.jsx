@@ -7,6 +7,7 @@ import MovieCards from "./movieCards/MovieCards";
 import Nuvem from "./assets/Nuvem.png"
 import Footer from "./components/footer/Footer";
 
+
     
   
 
