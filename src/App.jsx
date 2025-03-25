@@ -6,12 +6,20 @@ import lupa from "./assets/Lupa.svg";
 import MovieCards from "./movieCards/MovieCards";
 import Nuvem from "./assets/Design sem nome (11).png";
 import Footer from "./components/footer/Footer";
+import Switch from "./components/switch/Switch"
+    
+  
 
-const App = () => {
+  const App = () => {
+    const [isLight, setIsLight] = useState(true);
+    const troca = () => {
+      setIsLight((anterior) => !anterior)
+      
+    }
   const [search, setSearch] = useState("");
   const [movies, setMovies] = useState([]);
-  const apiKey = "";
-  const apiUrl = ``;
+  // const apiKey = "";
+  // const apiUrl = ``;
   useEffect(() => {
     searchMovies("Batman");
   }, []);
@@ -20,7 +28,12 @@ const App = () => {
     const data = await response.json();
     setMovies(data.Search);
   };
+  };
   return (
+        
+    <div id="App" className={isLight ? "light" : ""}>
+
+      <Switch troca={troca} isLight={isLight} />
     <div
       id="app"
       className="d-flex flex-column justify-content-center align-items-center w-100"
@@ -62,8 +75,9 @@ const App = () => {
       devL3={"https://github.com/PedroAraujosz"}
     />
   </div>
+  </div>
 );
-};
-  
+
+
 
 export default App;

@@ -10,7 +10,7 @@ const MovieCards = (props ) => {
   }
   return (
     <>
-    <div className="card movie-card text-white bg-dark col-md-4 mt-5 h-5 w-10"  onClick={toggleModal}>
+    <div className="card movie-card text-white bg-dark col-md-4 mt-5 w-25 h-500"  onClick={toggleModal}>
      <div className="card-body text-center" >
     <p className='card-text'>{props.Year}</p>
   </div>
