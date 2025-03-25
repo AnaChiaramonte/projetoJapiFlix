@@ -6,8 +6,16 @@ import lupa from "./assets/Lupa.svg";
 import MovieCards from "./movieCards/MovieCards";
 import Nuvem from "./assets/Nuvem.png"
 import Footer from "./components/footer/Footer";
+import Switch from "./components/switch/Switch"
+    
+  
 
-const App = () => {
+  const App = () => {
+    const [isLight, setIsLight] = useState(true);
+    const troca = () => {
+      setIsLight((anterior) => !anterior)
+      
+    }
   const [search, setSearch] = useState("");
   const [movies, setMovies] = useState([]);
 
@@ -29,12 +37,17 @@ const App = () => {
     //alimentando o movies
     setMovies(data.Search);
   };
+  };
 
   //e = evento | ao clicar ou digitar acontece algo
   const handleKeyPress = (e) => {
     e.key === "Enter" && searchMovies(search);
   };
   return (
+        
+    <div id="App" className={isLight ? "light" : ""}>
+
+      <Switch troca={troca} isLight={isLight} />
     <>
     <div
       id="app"
@@ -57,6 +70,29 @@ const App = () => {
           alt=""
         />
       </div>
+      <MovieCards 
+  Title="Inception" 
+  Year="2010" 
+  Type="Movie" 
+  Poster="https://via.placeholder.com/300x450" 
+  imdbID="tt1375666"
+/>
+
+    
+  
+    <Footer
+      devn1={"Ana Geremias"}
+      devL1={"https://github.com/Najul1a"}
+      devn2={"Ana Lopes"}
+      devL2={"https://github.com/AnaChiaramonte"}
+      devn3={"Pedro Araujo"}
+      devL3={"https://github.com/PedroAraujosz"}
+    />
+  </div>
+  </div>
+);
+
+
 
       {movies?.length > 0 ? (
         <div className="container">
