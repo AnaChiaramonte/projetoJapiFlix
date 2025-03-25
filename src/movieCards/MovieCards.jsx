@@ -10,11 +10,11 @@ const MovieCards = (props ) => {
   }
   return (
     <>
-    <div className="card movie-card text-white bg-dark col-md-4 mt-5 "  onClick={toggleModal}>
+    <div className="card movie-card text-white bg-dark col-md-4 mt-5 h-2 w-25"  onClick={toggleModal}>
      <div className="card-body text-center" >
     <p className='card-text'>{props.Year}</p>
   </div>
- <div>
+ <div className="card movie-card text-white bg-dark  ">
 <img  src={props.Poster}  alt="" className="card-img-top img-fluid" />
 </div> 
 <div className="card-footer text-center">
