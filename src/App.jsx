@@ -27,8 +27,7 @@ import Switch from "./components/switch/Switch"
     const response = await fetch(`${apiUrl}&s=${title}`);
     const data = await response.json();
     setMovies(data.Search);
-  };
-  };
+  }
   return (
         
     <div id="App" className={isLight ? "light" : ""}>
@@ -77,7 +76,7 @@ import Switch from "./components/switch/Switch"
   </div>
   </div>
 );
-
+  }
 
 
 export default App;
