@@ -54,7 +54,7 @@ const App = () => {
         <div className="container mt-4">
         <div className="row justify-content-center">
         {movies?.length > 0 ? (
-          <div className="container">
+          <div className="d-flex flex-wrap justify-content-center ">
             {movies.map((movie, index) => (
               <MovieCards key={index} apiUrl={apiUrl} {...movie} />
             ))}

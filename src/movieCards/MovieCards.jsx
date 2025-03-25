@@ -11,7 +11,13 @@ const MovieCard = (props) => {
 
   return (
     <>
-      <div className="card movie-card text-white bg-dark" onClick={toggleModal}>
+      <div className="card movie-card text-white bg-dark mt-5 w-25 h-22 " 
+      style={{
+       
+        margin: "1.5rem",
+        transition:"all 0,4s cubic-bezier(0.175, 0.885, 0.32, 1.275)"
+      }}
+      onClick={toggleModal}>
         <div className="card-body text-center">
           <p className="card-text">{props.Year}</p>
         </div>
