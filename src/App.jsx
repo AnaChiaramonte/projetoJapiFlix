@@ -6,8 +6,7 @@ import lupa from "./assets/Lupa.svg";
 import MovieCards from "./movieCards/MovieCards";
 import Nuvem from "./assets/Nuvem.png"
 import Footer from "./components/footer/Footer";
-import Switch from "./components/switch/Switch"
-    
+
   
 
   const App = () => {
