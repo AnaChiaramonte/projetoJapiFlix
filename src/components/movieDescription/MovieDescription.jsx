@@ -52,6 +52,8 @@ const MovieDescription = ({ apiUrl, movieID, click }) => {
         </div>
       </div>
     </div>
+      </div>
+    </div>
   );
 };
 
