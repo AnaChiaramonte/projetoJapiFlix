@@ -15,6 +15,30 @@ const MovieDescription = ({ apiUrl, movieID, click }) => {
   if (!movieDesc) return null; // Evita erro caso os dados ainda não tenham carregado
 
   return (
+    <div className={styles.modalBackdrop} onClick={props.click}>
+      <div className={styles.movieModal} onClick={(e) => e.stopPropagation()}>
+        <div className={styles.movieInfo}>
+          <img
+            src={movieDesc.Poster}
+            alt={`Imagem da capa do filme ${movieDesc.Title}`}
+          />
+          <button className={styles.btnClose} onClick={props.click}>
+            X
+          </button>
+          <div className={styles.movieType}>
+            <div>
+              <img src="" alt="" />
+              {movieDesc.Type}
+              <h1>{movieDesc.Title}</h1>
+              <a
+                href={`https://google.com/search?q=${encodeURIComponent(
+                  movieDesc.Title
+                )}`}
+                target="_blank"
+              >
+                ▶️ Assistir
+              </a>
+            </div>
     <div className="position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex justify-content-center align-items-center" onClick={click}>
       <div className="bg-black text-white rounded p-3 shadow-lg position-relative" style={{ maxWidth: "850px", width: "90%" }} onClick={(e) => e.stopPropagation()}>
         
