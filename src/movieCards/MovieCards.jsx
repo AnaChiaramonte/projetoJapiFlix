@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import MovieDescription from "../components/movieDescription/MovieDescription"
+import MovieDescription from "../components/movieDescription/MovieDescription";
 
 const MovieCard = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -11,7 +11,16 @@ const MovieCard = (props) => {
 
   return (
     <>
-      <div className="card movie-card text-white bg-dark" onClick={toggleModal}>
+      {/* Cartão do Filme */}
+      <div
+        className="card movie-card text-white bg-dark mt-5 w-25 h-20 shadow-lg"
+        style={{
+          margin: "1.5rem",
+          transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+          cursor: "pointer",
+        }}
+        onClick={toggleModal}
+      >
         <div className="card-body text-center">
           <p className="card-text">{props.Year}</p>
         </div>
@@ -22,6 +31,7 @@ const MovieCard = (props) => {
         </div>
       </div>
 
+      {/* Modal (Só aparece quando isModalOpen for true) */}
       {isModalOpen && (
         <div className="modal fade show d-block" tabIndex="-1" role="dialog">
           <div className="modal-dialog modal-dialog-centered">
@@ -41,14 +51,13 @@ const MovieCard = (props) => {
             </div>
           </div>
         </div>
-     
       )}
-      {isModalOpen &&(
-        <MovieDescription apiUrl={props.apiUrl} movieID={props.imdbID} click={toggleModal}/>
-      )}
+
+      {/* Fundo escuro para modal Bootstrap */}
+      {isModalOpen && <div className="modal-backdrop fade show" onClick={toggleModal}></div>}
     </>
   );
-
 };
 
 export default MovieCard;
+
