@@ -36,13 +36,13 @@ import Switch from "./components/switch/Switch"
 
     //alimentando o movies
     setMovies(data.Search);
-  };
-  };
+  }
+  }
 
   //e = evento | ao clicar ou digitar acontece algo
   const handleKeyPress = (e) => {
     e.key === "Enter" && searchMovies(search);
-  };
+  
   return (
         
     <div id="App" className={isLight ? "light" : ""}>
@@ -78,7 +78,16 @@ import Switch from "./components/switch/Switch"
   imdbID="tt1375666"
 />
 
-    
+{movies?.length > 0 ? (
+        <div className="container">
+          {movies.map((movie, index) => (
+            <MovieCards key={index} apiUrl={apiUrl} {...movie} />
+          ))}
+        </div>
+      ) : (
+        <h2 className="empty">😢 Filme não encontrado 😢</h2>
+      )}
+
   
     <Footer
       devn1={"Ana Geremias"}
@@ -89,32 +98,13 @@ import Switch from "./components/switch/Switch"
       devL3={"https://github.com/PedroAraujosz"}
     />
   </div>
+   </div>
   </div>
+  
 );
+  };
 
 
-
-      {movies?.length > 0 ? (
-        <div className="container">
-          {movies.map((movie, index) => (
-            <MovieCards key={index} apiUrl={apiUrl} {...movie} />
-          ))}
-        </div>
-      ) : (
-        <h2 className="empty">😢 Filme não encontrado 😢</h2>
-      )}
-
-      <Footer
-        devn1={"Ana Geremias"}
-        devL1={"https://github.com/Najul1a"}
-        devn2={"Ana Lopes"}
-        devL2={"https://github.com/AnaChiaramonte"}
-        devn3={"Pedro Araujo"}
-        devL3={"https://github.com/PedroAraujosz"}
-      />
-    </div>
-    </>
-  )
-}
+     
 
 export default App;
