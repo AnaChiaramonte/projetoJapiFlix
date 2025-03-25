@@ -18,9 +18,7 @@ const MovieDescription = (props) => {
             src={movieDesc.Poster}
             alt={`Imagem da capa do filme ${movieDesc.Title}`}
           />
-          <button className={styles.btnClose} onClick={props.click}>
-            X
-          </button>
+
           <div className={styles.movieType}>
             <div>
               <img src="" alt="" />
@@ -37,21 +35,8 @@ const MovieDescription = (props) => {
             </div>
           </div>
         </div>
-        <div className={styles.containerMisc}>
-          <div className={styles.containerFlex}>
-            Avaliação: {movieDesc.imdbRating} | Duração: {movieDesc.Runtime} |{" "}
-            {movieDesc.Released}
-          </div>
-          <div className={styles.containerFlex}>
-            <p>Elenco: {movieDesc.Actors}</p>
-            <p>Gênero: {movieDesc.Genre}</p>
-          </div>
-        </div>
-        <div className={styles.desc}>
-          <p>Sinopse: {movieDesc.Plot}</p>
-        </div>
-      </div>
-    </div>
+       </div>
+       </div>
   );
 }
 
