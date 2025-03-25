@@ -4,15 +4,14 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import lupa from "./assets/Lupa.svg";
 import MovieCards from "./movieCards/MovieCards";
-import Nuvem from "./assets/Design_sem_nome_(11).png";
-import "./App.css"
+import Nuvem from "./assets/Design sem nome (11).png";
 import Footer from "./components/footer/Footer";
 
 const App = () => {
   const [search, setSearch] = useState("");
   const [movies, setMovies] = useState([]);
-  const apiKey = "";
-  const apiUrl = ``;
+  // const apiKey = "";
+  // const apiUrl = ``;
   useEffect(() => {
     searchMovies("Batman");
   }, []);
