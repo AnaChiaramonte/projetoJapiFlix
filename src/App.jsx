@@ -6,6 +6,7 @@ import lupa from "./assets/Lupa.svg";
 import MovieCards from "./movieCards/MovieCards";
 import Nuvem from "./assets/Design sem nome(11).png";
 import Footer from "./components/footer/Footer";
+import Japiflix from "./assets/J.png";
 
 const App = () => {
   const [search, setSearch] = useState("");
