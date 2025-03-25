@@ -5,7 +5,9 @@ import { useState, useEffect } from "react";
 import lupa from "./assets/Lupa.svg";
 import MovieCards from "./movieCards/MovieCards";
 
-import Nuvem from "./assets/Design_sem_nome_(11).png";
+import Nuvem from "./assets/Design sem nome (11).png";
+
+
 
 const App = () => {
   const [search, setSearch] = useState("");
