@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import styles from "MovieDescription.module.css"
+import styles from "./MovieDescription.module.css"
 
 
 const MovieDescription = (props) => {
