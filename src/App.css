@@ -1,4 +1,6 @@
-@import "./scss/styles.scss";
+body {
+  background: #2e3234;
+}
 
 .Nuvem {
   max-width: 110%;
