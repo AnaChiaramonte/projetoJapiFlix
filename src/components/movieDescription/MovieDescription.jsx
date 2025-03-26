@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-
-
-const DescriptionModal = ({ apiUrl, movieID, click }) => {
+const MovieDescription = ({ apiUrl, movieID, closeMovie }) => {
   const [movieDesc, setMovieDesc] = useState(null);
 
   useEffect(() => {
@@ -19,36 +17,35 @@ const DescriptionModal = ({ apiUrl, movieID, click }) => {
     <div className="modal fade show d-block" tabIndex="-1" role="dialog">
       <div className="modal-dialog modal-dialog-centered modal-lg">
         <div className="modal-content bg-dark text-white">
-        <div className="modal-header border-0 position-relative">
-  <h5 className="modal-title">{movieDesc.Title}</h5>
-  <button 
-    type="button" 
-    className="btn-close btn-close-white position-absolute" 
-    style={{ right: "15px", top: "15px" }} 
-    onClick={click}
-  ></button>
-</div>
-
-          {/* Cabeçalho */}
-          <div className="modal-header border-0 justify-content-center ">
-            <h5 className="modal-title text-center">{movieDesc.Title}</h5>
+          
+          {/* 🔹 Cabeçalho com botão de fechar */}
+          <div className="modal-header border-0 d-flex justify-content-between align-items-center">
+            <h5 className="modal-title">{movieDesc.Title}</h5>
+        <button 
+          type="button" 
+          className="btn-close btn-close-white position-absolute"
+          onClick={closeMovie}
+          style={{ right: "15px", top: "15px", zIndex: "10" }}
+          />
+         
           </div>
 
           {/* Corpo do modal */}
-          <div className="modal-body text-center d-flex justify-content-center">
+          <div className="modal-body text-center">
             <img 
               src={movieDesc.Poster} 
-              className="card d-flex align-items-center  " 
+              className="w-100 h-auto rounded" 
               alt={`Capa do filme ${movieDesc.Title}`} 
-              style={{maxHeight: "300px", }}
+              style={{ objectFit: "contain", maxHeight: "500px" }}
             />
             <div className="mt-3">
               <span className="badge bg-secondary">{movieDesc.Type}</span>
-              <h1 className="d-flex m-4 mt-4">{movieDesc.Title}</h1>
+              <h1 className="mt-1">{movieDesc.Title}</h1>
               <a 
                 href={`https://google.com/search?q=${encodeURIComponent(movieDesc.Title)}`} 
                 className="btn btn-light mt-2 font-monospace" 
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 Assistir
               </a>
@@ -68,4 +65,4 @@ const DescriptionModal = ({ apiUrl, movieID, click }) => {
   );
 };
 
-export default DescriptionModal;
+export default MovieDescription;
