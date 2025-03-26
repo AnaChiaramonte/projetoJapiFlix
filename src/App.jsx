@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.js";
-import "./App.css";
+import "./Ap   p.css";
 import { useState, useEffect } from "react";
 import lupa from "./assets/Lupa.svg";
 import MovieCards from "./movieCards/MovieCards";
