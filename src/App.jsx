@@ -12,6 +12,19 @@ import CategoryFilter from "./components/categorias/Categorias"
   
 
 const App = () => {
+  const mudaTema = () => {
+    const tema = window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+    document.documentElement.setAttribute("data-bs-theme", tema);
+  };
+  mudaTema();
+
+
+  // Listen for changes in the color scheme
+  window
+    .matchMedia("(prefers-color-scheme: dark)")
+    .addEventListener("change", mudaTema);
 
 
   
@@ -24,6 +37,8 @@ const App = () => {
   useEffect(() => {
     searchMovies("Batman");
   }, []);
+
+ 
 
   const searchMovies = async (title) => {
     const response = await fetch(`${apiUrl}&s=${title}`);
