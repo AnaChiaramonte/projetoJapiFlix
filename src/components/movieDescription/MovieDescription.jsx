@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-
-
-const DescriptionModal = ({ apiUrl, movieID, click }) => {
+const DescriptionModal = ({ apiUrl, movieID, toggleModal }) => {
   const [movieDesc, setMovieDesc] = useState(null);
 
   useEffect(() => {
@@ -16,7 +14,11 @@ const DescriptionModal = ({ apiUrl, movieID, click }) => {
   if (!movieDesc) return null;
 
   return (
-    <div  className="modal fade show d-block movie-card" tabIndex="-1" role="dialog">
+    <div
+      className="modal fade show d-block movie-card"
+      tabIndex="-1"
+      role="dialog"
+    >
       <div className="modal-dialog modal-dialog-centered modal-lg">
         <div className="modal-content bg-dark text-white">
         <div className="modal-header border-0 position-relative">
@@ -32,6 +34,13 @@ const DescriptionModal = ({ apiUrl, movieID, click }) => {
           {/* Cabeçalho */}
           <div className="modal-header border-0 justify-content-center ">
             <h5 className="modal-title text-center">{movieDesc.Title}</h5>
+          <div className="modal-header border-0">
+            <h5 className="modal-title">{movieDesc.Title}</h5>
+            <button
+              type="button"
+              className="btn-close btn-close-white"
+              onClick={toggleModal}
+            ></button>
           </div>
 
           {/* Corpo do modal */}
@@ -41,6 +50,12 @@ const DescriptionModal = ({ apiUrl, movieID, click }) => {
               className="card d-flex align-items-center  " 
               alt={`Capa do filme ${movieDesc.Title}`} 
               style={{maxHeight: "300px", }}
+          <div className="modal-body text-center">
+            <img
+              src={movieDesc.Poster}
+              className="img-fluid w-100"
+              alt={`Capa do filme ${movieDesc.Title}`}
+              style={{ objectFit: "cover", maxHeight: "500px" }}
             />
             <div className="mt-3">
               <span className="badge bg-secondary">{movieDesc.Type}</span>
@@ -48,6 +63,12 @@ const DescriptionModal = ({ apiUrl, movieID, click }) => {
               <a 
                 href={`https://google.com/search?q=${encodeURIComponent(movieDesc.Title)}`} 
                 className="btn btn-light mt-2 font-monospace" 
+              <h1 className="mt-1">{movieDesc.Title}</h1>
+              <a
+                href={`https://google.com/search?q=${encodeURIComponent(
+                  movieDesc.Title
+                )}`}
+                className="btn btn-light mt-2 font-monospace"
                 target="_blank"
               >
                 Assistir
@@ -57,10 +78,19 @@ const DescriptionModal = ({ apiUrl, movieID, click }) => {
 
           {/* Informações adicionais */}
           <div className="modal-footer border-0 flex-column text-center">
-            <p className="mb-1">⭐ {movieDesc.imdbRating} | ⏳ {movieDesc.Runtime} | 📅 {movieDesc.Released}</p>
-            <p className="mb-1"><strong>Elenco:</strong> {movieDesc.Actors}</p>
-            <p className="mb-1"><strong>Gênero:</strong> {movieDesc.Genre}</p>
-            <p className="text-justify"><strong>Sinopse:</strong> {movieDesc.Plot}</p>
+            <p className="mb-1">
+              ⭐ {movieDesc.imdbRating} | ⏳ {movieDesc.Runtime} | 📅{" "}
+              {movieDesc.Released}
+            </p>
+            <p className="mb-1">
+              <strong>Elenco:</strong> {movieDesc.Actors}
+            </p>
+            <p className="mb-1">
+              <strong>Gênero:</strong> {movieDesc.Genre}
+            </p>
+            <p className="text-justify">
+              <strong>Sinopse:</strong> {movieDesc.Plot}
+            </p>
           </div>
         </div>
       </div>

@@ -10,6 +10,7 @@ import "./scss/styles.scss";
 
 
 const App = () => {
+ 
   const mudaTema = () => {
     const tema = window.matchMedia("(prefers-color-scheme: dark)").matches
       ? "dark"
@@ -29,20 +30,22 @@ const App = () => {
   const [search, setSearch] = useState("");
   const [movies, setMovies] = useState([]);
 
-  const apiKey = "e4d577fa";
-  const apiUrl = `https://omdbapi.com/?apikey=${apiKey}`;
-
-  useEffect(() => {
-    searchMovies("Batman");
-  }, []);
-
- 
-
-  const searchMovies = async (title) => {
-    const response = await fetch(`${apiUrl}&s=${title}`);
-    const data = await response.json();
-    setMovies(data.Search);
+const searchMovies = (query) => {
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxMDlkMTQ5ZjMzN2RlNDk2OGY3ZjdlMWViOWE4YTY4MiIsIm5iZiI6MTc0MjMwNDkyOC4xMjIsInN1YiI6IjY3ZDk3NmEwMWJiNGI1YzU4YmM2YWVkZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.XKNPI7RMbZyvkeVVtHMqWYBp_w0sMTGd7ZoihShwbfc'
+    }
   };
+
+  fetch(`https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`, options)
+    .then(res => res.json())
+    .then(data => setMovies(data.results || []))
+    .catch(err => console.error(err));
+};
+
+console.log(searchMovies)
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter") searchMovies(search);
@@ -71,8 +74,14 @@ const App = () => {
         <div className="row justify-content-center">
         {movies?.length > 0 ? (
           <div className="d-flex flex-wrap justify-content-center ">
-            {movies.map((movie, index) => (
-              <MovieCards key={index} apiUrl={apiUrl} {...movie} />
+            {movies.map((movie) => (
+              <MovieCards
+                key={movie.id}
+                title={movie.title}
+                poster={movie.poster_path}
+                overview={movie.overview}
+                releaseDate={movie.release_date}
+              />
             ))}
           </div>
         ) : (
