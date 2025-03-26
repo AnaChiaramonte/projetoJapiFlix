@@ -1,0 +1,24 @@
+/* ...existing code... */
+
+.movieDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  color: #666;
+}
+
+.movieDetails span {
+  font-weight: bold;
+  color: #333;
+}
+
+.synopsis {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #444;
+}
+/* git add . */
+/* git commit -m "mensagem" */
+/* git push origin nomebranch */
