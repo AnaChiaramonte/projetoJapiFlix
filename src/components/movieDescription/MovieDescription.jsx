@@ -5,10 +5,16 @@ const MovieDescription = (props) => {
   const [movieDesc, SetMovieDesc] = useState({});
 
   useEffect(() => {
+    console.log("API URL:", props.apiUrl);
+    console.log("Movie ID:", props.movieID);
+  
     if (props.movieID) {
       fetch(`${props.apiUrl}&i=${props.movieID}`)
         .then((response) => response.json())
-        .then((data) => SetMovieDesc(data))
+        .then((data) => {
+          console.log("Dados da API:", data); // Verifica a resposta
+          SetMovieDesc(data);
+        })
         .catch((error) => console.error("Erro ao buscar filme:", error));
     }
   }, [props.movieID]); 

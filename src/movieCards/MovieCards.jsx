@@ -55,6 +55,8 @@ const MovieCard = (props) => {
 
       {/* Fundo escuro para modal Bootstrap */}
       {isModalOpen && <div className="modal-backdrop fade show" onClick={toggleModal}></div>}
+
+
     </>
   );
 };

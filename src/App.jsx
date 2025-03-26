@@ -73,6 +73,7 @@ const App = () => {
           devL3={"https://github.com/PedroAraujosz"}
         />
       </div>
+      <MovieCard apiUrl="https://www.omdbapi.com/?apikey=SEU_API_KEY" imdbID={movie.imdbID} />
    </div>
    </div>
   );
