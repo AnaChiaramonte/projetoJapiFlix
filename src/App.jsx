@@ -1,15 +1,13 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.js";
-import "./Ap   p.css";
+import "./App.css";
 import { useState, useEffect } from "react";
 import lupa from "./assets/Lupa.svg";
 import MovieCards from "./movieCards/MovieCards";
 import Nuvem from "./assets/Nuvem.png";
 import Footer from "./components/footer/Footer";
+import "./scss/styles.scss";
 
-
-    
-  
 
 const App = () => {
   const mudaTema = () => {
