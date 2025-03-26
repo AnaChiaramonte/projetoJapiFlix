@@ -10,6 +10,19 @@ import "./scss/styles.scss";
 
 
 const App = () => {
+  const apiKeyTMDB = "SUA_CHAVE_DA_API_TMDB";
+const apiUrlTMDB = `https://api.themoviedb.org/3/search/movie?api_key=${apiKeyTMDB}&language=pt-BR&query=${search}`;
+
+const searchMoviesTMDB = async (title) => {
+  const response = await fetch(apiUrlTMDB);
+  const data = await response.json();
+  // Aqui você precisará filtrar os resultados para mostrar apenas filmes do Japão, China ou Coreia
+  const filmesAsiaticos = data.results.filter(filme => {
+    // A propriedade 'origin_country' é um array com os códigos dos países de origem do filme
+    return filme.origin_country.includes('JP') || filme.origin_country.includes('CN') || filme.origin_country.includes('KR');
+  });
+  setMovies(filmesAsiaticos);
+};
   const mudaTema = () => {
     const tema = window.matchMedia("(prefers-color-scheme: dark)").matches
       ? "dark"
