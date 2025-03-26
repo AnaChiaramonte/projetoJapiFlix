@@ -14,26 +14,24 @@ const MovieCard = (props) => {
     <>
       {/* Cartão do Filme */}
       <div
-        className={`card movie-card text-white bg-dark mt-5 w-25 h-20 shadow-lg ${styles.sombreado}`}
+        className={`card movie-card text-white bg-dark mt-5 w-25 h-20 shadow-lg ${styles.sombreado} ${styles.movieCard}`}
         style={{
           margin: "1.5rem",
           transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
-          
-          
         }}
         onClick={toggleModal}
       >
-        <div className="">
-          <p className="card-text card-body text-center opacity-25">{props.Year}</p>
-       
+        
+        <div className={styles.yearOverlay}>
+          <p className="card-text text-center">{props.Year}</p>
         </div>
-       <div >
-       <img
-          src={props.Poster}
-          alt="Movie Poster"
-          className="card-img-top img-fluid "
-        />
-       </div>
+        <div >
+          <img
+            src={props.Poster}
+            alt="Movie Poster"
+            className="card-img-top img-fluid"
+          />
+        </div>
         <div className="card-footer text-center">
           <span className="text-uppercase fw-bold">{props.Type}</span>
           <h3 className="mt-2">{props.Title}</h3>
@@ -67,6 +65,7 @@ const MovieCard = (props) => {
             </div>
           </div>
         </div>
+        
       )}
 
       {/* Fundo escuro para modal Bootstrap */}

@@ -19,22 +19,20 @@
   
 }
 
-body {
-  background-color: #2e3234;
-}
+
 
 :root {
-  --bs-body-bg: rgb(231, 225, 225);
+  --bs-body-bg: rgb(231, 225, 225) !important;
 }
 
 
 [data-bs-theme="dark"] {
-  --bs-body-bg: rgb(51, 51, 51);
+  --bs-body-bg: rgb(51, 51, 51) !important;
 }:root {
-  --bs-body-bg: rgb(204, 165, 248);
+  --bs-body-bg: rgb(204, 165, 248) !important;
 }
 
 
 [data-bs-theme="dark"] {
-  --bs-body-bg: rgb(102, 75, 133);
+  --bs-body-bg: rgb(102, 75, 133) !important ;
 }
