@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
-import styles from "./MovieDescription.module.css";
+import React, {useEffect, useState} from 'react'
+
+import styles from "./MovieDescription.module.css"
 
 const MovieDescription = (props) => {
   const [movieDesc, SetMovieDesc] = useState({});
