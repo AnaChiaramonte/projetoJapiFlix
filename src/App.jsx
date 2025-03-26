@@ -3,7 +3,7 @@ import "bootstrap/dist/js/bootstrap.bundle.js";
 import "./App.css";
 import { useState, useEffect } from "react";
 import lupa from "./assets/Lupa.svg";
-import MovieCard from "./components/movieCards/MovieCards";
+import MovieCards from "./components/movieCards/MovieCards";
 import Nuvem from "./assets/Nuvem.png";
 import Footer from "./components/footer/Footer";
 
@@ -86,7 +86,7 @@ const App = () => {
           devL3={"https://github.com/PedroAraujosz"}
         />
       </div>
-      <MovieCard apiUrl="https://www.omdbapi.com/?apikey=SEU_API_KEY" imdbID={movie.imdbID} />
+     
    </div>
    </div>
   );
