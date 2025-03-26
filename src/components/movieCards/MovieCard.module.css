@@ -1,0 +1,28 @@
+.movieCard {
+    position: relative; /* Já tínhamos isso */
+    overflow: hidden; /* Já tínhamos isso */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Já tínhamos isso */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra inicial sutil */
+  }
+  
+  .movieCard:hover {
+    box-shadow: 0px 7px 20px rgba(0, 0, 0, 0.4); /* Sombra mais forte ao passar o mouse */
+    transform: translateY(-5px); /* Opcional: pode dar um pequeno efeito de "levantar" o card */
+  }
+  
+  .yearOverlay {
+    position: absolute; /* Já tínhamos isso */
+    top: 10px; /* Já tínhamos isso */
+    left: 10px; /* Já tínhamos isso */
+    background-color: rgba(0, 0, 0, 0.7); /* Já tínhamos isso */
+    color: white; /* Já tínhamos isso */
+    padding: 5px 10px; /* Já tínhamos isso */
+    border-radius: 5px; /* Já tínhamos isso */
+    z-index: 1; /* Já tínhamos isso */
+    opacity: 0; /* Já tínhamos isso */
+    transition: opacity 0.3s ease-in-out; /* Já tínhamos isso */
+  }
+  
+  .movieCard:hover .yearOverlay {
+    opacity: 1; /* Já tínhamos isso */
+  }
