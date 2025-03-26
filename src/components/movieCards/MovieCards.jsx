@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import MovieDescription from "../components/movieDescription/MovieDescription";
+import MovieDescription from "../movieDescription/MovieDescription";
 
 const MovieCard = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
