@@ -6,10 +6,8 @@ import lupa from "./assets/Lupa.svg";
 import MovieCards from "./movieCards/MovieCards";
 import Nuvem from "./assets/Nuvem.png";
 import Footer from "./components/footer/Footer";
-import CategoryFilter from "./components/categorias/Categorias"
+import "./scss/styles.scss";
 
-    
-  
 
 const App = () => {
   const mudaTema = () => {
