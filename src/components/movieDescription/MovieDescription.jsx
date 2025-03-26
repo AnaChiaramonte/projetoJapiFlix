@@ -21,35 +21,18 @@ const DescriptionModal = ({ apiUrl, movieID, toggleModal }) => {
     >
       <div className="modal-dialog modal-dialog-centered modal-lg">
         <div className="modal-content bg-dark text-white">
-        <div className="modal-header border-0 position-relative">
-  <h5 className="modal-title">{movieDesc.Title}</h5>
-  <button 
-    type="button" 
-    className="btn-close btn-close-white position-absolute" 
-    style={{ right: "15px", top: "15px" }} 
-    onClick={click}
-  ></button>
-</div>
-
           {/* Cabeçalho */}
-          <div className="modal-header border-0 justify-content-center ">
-            <h5 className="modal-title text-center">{movieDesc.Title}</h5>
-          <div className="modal-header border-0">
+          <div className="modal-header border-0 position-relative">
             <h5 className="modal-title">{movieDesc.Title}</h5>
             <button
               type="button"
-              className="btn-close btn-close-white"
+              className="btn-close btn-close-white position-absolute"
+              style={{ right: "15px", top: "15px" }}
               onClick={toggleModal}
             ></button>
           </div>
 
           {/* Corpo do modal */}
-          <div className="modal-body text-center d-flex justify-content-center">
-            <img 
-              src={movieDesc.Poster} 
-              className="card d-flex align-items-center  " 
-              alt={`Capa do filme ${movieDesc.Title}`} 
-              style={{maxHeight: "300px", }}
           <div className="modal-body text-center">
             <img
               src={movieDesc.Poster}
@@ -59,17 +42,14 @@ const DescriptionModal = ({ apiUrl, movieID, toggleModal }) => {
             />
             <div className="mt-3">
               <span className="badge bg-secondary">{movieDesc.Type}</span>
-              <h1 className="d-flex m-4 mt-4">{movieDesc.Title}</h1>
-              <a 
-                href={`https://google.com/search?q=${encodeURIComponent(movieDesc.Title)}`} 
-                className="btn btn-light mt-2 font-monospace" 
-              <h1 className="mt-1">{movieDesc.Title}</h1>
+              <h1 className="mt-4">{movieDesc.Title}</h1>
               <a
                 href={`https://google.com/search?q=${encodeURIComponent(
                   movieDesc.Title
                 )}`}
                 className="btn btn-light mt-2 font-monospace"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 Assistir
               </a>
