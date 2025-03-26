@@ -57,8 +57,6 @@ const DescriptionModal = ({ apiUrl, movieID, click }) => {
         </div>
       </div>
     </div>
-      </div>
-    </div>
   );
 };
 
