@@ -3,7 +3,7 @@ import "bootstrap/dist/js/bootstrap.bundle.js";
 import "./App.css";
 import { useState, useEffect } from "react";
 import lupa from "./assets/Lupa.svg";
-import MovieCards from "./components/movieCards/MovieCards";
+import MovieCard from "./components/movieCards/MovieCards";
 import Nuvem from "./assets/Nuvem.png";
 import Footer from "./components/footer/Footer";
 
