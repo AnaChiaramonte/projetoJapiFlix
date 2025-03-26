@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 
 
-const MovieDescription = ({ apiUrl, movieID, click }) => {
+const DescriptionModal = ({ apiUrl, movieID, click }) => {
   const [movieDesc, setMovieDesc] = useState(null);
 
   useEffect(() => {
@@ -28,15 +28,21 @@ const MovieDescription = ({ apiUrl, movieID, click }) => {
 
           {/* Corpo do modal */}
           <div className="modal-body text-center">
-            <img src={movieDesc.Poster} className="img-fluid " alt={`Capa do filme ${movieDesc.Title}`} 
- />
+            <img 
+              src={movieDesc.Poster} 
+              className="w-100 h-auto rounded " 
+              alt={`Capa do filme ${movieDesc.Title}`} 
+              style={{ objectFit: "cover", maxHeight: "500px" }}
+            />
             <div className="mt-3">
               <span className="badge bg-secondary">{movieDesc.Type}</span>
-              <h1 className="mt-2">{movieDesc.Title}</h1>
-              <a href={`https://google.com/search?q=${encodeURIComponent(movieDesc.Title)}`} 
-                 className="btn btn-light mt-2 font-monospace font-family" 
-                 target="_blank">
-                 Assistir
+              <h1 className="mt-1">{movieDesc.Title}</h1>
+              <a 
+                href={`https://google.com/search?q=${encodeURIComponent(movieDesc.Title)}`} 
+                className="btn btn-light mt-2 font-monospace" 
+                target="_blank"
+              >
+                Assistir
               </a>
             </div>
           </div>
@@ -47,7 +53,6 @@ const MovieDescription = ({ apiUrl, movieID, click }) => {
             <p className="mb-1"><strong>Elenco:</strong> {movieDesc.Actors}</p>
             <p className="mb-1"><strong>Gênero:</strong> {movieDesc.Genre}</p>
             <p className="text-justify"><strong>Sinopse:</strong> {movieDesc.Plot}</p>
-           
           </div>
         </div>
       </div>
@@ -57,5 +62,4 @@ const MovieDescription = ({ apiUrl, movieID, click }) => {
   );
 };
 
-export default MovieDescription;
-
+export default DescriptionModal;
