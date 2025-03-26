@@ -1,58 +1,61 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-import styles from "./MovieDescription.module.css"
 
-const MovieDescription = (props) => {
-  const [movieDesc, SetMovieDesc] = useState([]);
+
+const MovieDescription = ({ apiUrl, movieID, click }) => {
+  const [movieDesc, setMovieDesc] = useState(null);
+
   useEffect(() => {
-    fetch(`${props.apiUrl}&i=${props.movieID}`)
-    .then((response) => response.json())
-    .then((data) => SetMovieDesc(data))
-    .catch((error) => console.error(error));
-  }, []);
+    fetch(`${apiUrl}&i=${movieID}`)
+      .then((response) => response.json())
+      .then((data) => setMovieDesc(data))
+      .catch((error) => console.error(error));
+  }, [apiUrl, movieID]);
+
+  if (!movieDesc) return null;
+
   return (
-    <div className={styles.modalBackdrop} onClick={props.click}>
-      <div className={styles.movieModal} onClick={(e) => e.stopPropagation()}>
-        <div className={styles.movieInfo}>
-          <img
-            src={movieDesc.Poster}
-            alt={`Imagem da capa do filme ${movieDesc.Title}`}
-          />
-          <button className={styles.btnClose} onClick={props.click}>
-            X
-          </button>
-          <div className={styles.movieType}>
-            <div>
-              <img src="" alt="" />
-              {movieDesc.Type}
-              <h1>{movieDesc.Title}</h1>
-              <a
-                href={`https://google.com/search?q=${encodeURIComponent(
-                  movieDesc.Title
-                )}`}
-                target="_blank"
-              >
-                ▶️ Assistir
+    <div className="modal fade show d-block" tabIndex="-1" role="dialog">
+      <div className="modal-dialog modal-dialog-centered modal-lg">
+        <div className="modal-content bg-dark text-white">
+          
+          {/* Cabeçalho */}
+          <div className="modal-header border-0">
+            <h5 className="modal-title">{movieDesc.Title}</h5>
+            <button type="button" className="btn-close btn-close-white" onClick={click}></button>
+          </div>
+
+          {/* Corpo do modal */}
+          <div className="modal-body text-center">
+            <img src={movieDesc.Poster} className="img-fluid " alt={`Capa do filme ${movieDesc.Title}`} 
+ />
+            <div className="mt-3">
+              <span className="badge bg-secondary">{movieDesc.Type}</span>
+              <h1 className="mt-2">{movieDesc.Title}</h1>
+              <a href={`https://google.com/search?q=${encodeURIComponent(movieDesc.Title)}`} 
+                 className="btn btn-light mt-2 font-monospace font-family" 
+                 target="_blank">
+                 Assistir
               </a>
             </div>
           </div>
-        </div>
-        <div className={styles.containerMisc}>
-          <div className={styles.containerFlex}>
-            Avaliação: {movieDesc.imdbRating} | Duração: {movieDesc.Runtime} |{" "}
-            {movieDesc.Released}
+
+          {/* Informações adicionais */}
+          <div className="modal-footer border-0 flex-column text-center">
+            <p className="mb-1">⭐ {movieDesc.imdbRating} | ⏳ {movieDesc.Runtime} | 📅 {movieDesc.Released}</p>
+            <p className="mb-1"><strong>Elenco:</strong> {movieDesc.Actors}</p>
+            <p className="mb-1"><strong>Gênero:</strong> {movieDesc.Genre}</p>
+            <p className="text-justify"><strong>Sinopse:</strong> {movieDesc.Plot}</p>
+           
           </div>
-          <div className={styles.containerFlex}>
-            <p>Elenco: {movieDesc.Actors}</p>
-            <p>Gênero: {movieDesc.Genre}</p>
-          </div>
-        </div>
-        <div className={styles.desc}>
-          <p>Sinopse: {movieDesc.Plot}</p>
         </div>
       </div>
     </div>
+      </div>
+    </div>
   );
-}
+};
 
-export default MovieDescription
+export default MovieDescription;
+

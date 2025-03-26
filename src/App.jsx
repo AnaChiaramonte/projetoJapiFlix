@@ -4,116 +4,91 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import lupa from "./assets/Lupa.svg";
 import MovieCards from "./movieCards/MovieCards";
-import Nuvem from "./assets/Nuvem.png"
+import Nuvem from "./assets/Nuvem.png";
 import Footer from "./components/footer/Footer";
 
+
+    
   
 
-  const App = () => {
-    const [isLight, setIsLight] = useState(true);
-    const troca = () => {
-      setIsLight((anterior) => !anterior)
-      
-    }
+const App = () => {
+  const mudaTema = () => {
+    const tema = window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+    document.documentElement.setAttribute("data-bs-theme", tema);
+  };
+  mudaTema();
+
+
+  // Listen for changes in the color scheme
+  window
+    .matchMedia("(prefers-color-scheme: dark)")
+    .addEventListener("change", mudaTema);
+
   const [search, setSearch] = useState("");
   const [movies, setMovies] = useState([]);
 
-  //Utilizando chave de API do arquivo .env
-  // const apiKey = import.meta.env.VITE_OMDB_API_KEY;
   const apiKey = "e4d577fa";
   const apiUrl = `https://omdbapi.com/?apikey=${apiKey}`;
 
-  //Alimentando com dados para não ficar nulo com useEffect
   useEffect(() => {
     searchMovies("Batman");
   }, []);
 
-  //criando a conexão com a API e trazendo informações
+ 
+
   const searchMovies = async (title) => {
     const response = await fetch(`${apiUrl}&s=${title}`);
     const data = await response.json();
-
-    //alimentando o movies
     setMovies(data.Search);
   };
-  };
 
-  //e = evento | ao clicar ou digitar acontece algo
   const handleKeyPress = (e) => {
-    e.key === "Enter" && searchMovies(search);
+    if (e.key === "Enter") searchMovies(search);
   };
-  return (
-        
-    <div id="App" className={isLight ? "light" : ""}>
 
-      <Switch troca={troca} isLight={isLight} />
-    <>
-    <div
-      id="app"
-      className="d-flex flex-column justify-content-center align-items-center w-100"
-    >
-      <img className="Nuvem w-100" src={Nuvem} alt="" />
-      <div className="d-flex w-75 m-0 mt-4 mb-2 align-items-center justify-content-between p-4 rounded-pill corPesquisa">
-        <input
-          className="bg-transparent border-0 fs-2 outLine align-self-baseline w-100"
-          onKeyDown={handleKeyPress}
-          type="text"
-          onChange={(e) => setSearch(e.target.value)}
-          placeholder="Pesquisa por filme..."
-        />
-        <img
-          className=""
-        
-          onClick={() => searchMovies(search)}
-          src={lupa}
-          alt=""
+  // Aqui o return deve estar dentro da função App
+  return (
+ 
+      <div
+        id="app"
+        className="d-flex flex-column justify-content-center align-items-center w-100"
+      >
+        <img className="Nuvem w-100" src={Nuvem} alt="" />
+        <div className="d-flex w-75 m-0 mt-4 mb-2 align-items-center justify-content-between p-4 rounded-pill corPesquisa">
+          <input
+            className="bg-transparent border-0 fs-2 outLine align-self-baseline w-100"
+            onKeyDown={handleKeyPress}
+            type="text"
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Pesquisa por filme..."
+          />
+          <img onClick={() => searchMovies(search)} src={lupa} alt="" />
+        </div>
+        <div className="container mt-4">
+        <div className="row justify-content-center">
+        {movies?.length > 0 ? (
+          <div className="d-flex flex-wrap justify-content-center ">
+            {movies.map((movie, index) => (
+              <MovieCards key={index} apiUrl={apiUrl} {...movie} />
+            ))}
+          </div>
+        ) : (
+          <h2 className="empty">😢 Filme não encontrado 😢</h2>
+        )}
+        <Footer
+          devn1={"Ana Geremias"}
+          devL1={"https://github.com/Najul1a"}
+          devn2={"Ana Lopes"}
+          devL2={"https://github.com/AnaChiaramonte"}
+          devn3={"Pedro Araujo"}
+          devL3={"https://github.com/PedroAraujosz"}
         />
       </div>
-      <MovieCards 
-  Title="Inception" 
-  Year="2010" 
-  Type="Movie" 
-  Poster="https://via.placeholder.com/300x450" 
-  imdbID="tt1375666"
-/>
-
-    
-  
-    <Footer
-      devn1={"Ana Geremias"}
-      devL1={"https://github.com/Najul1a"}
-      devn2={"Ana Lopes"}
-      devL2={"https://github.com/AnaChiaramonte"}
-      devn3={"Pedro Araujo"}
-      devL3={"https://github.com/PedroAraujosz"}
-    />
-  </div>
-  </div>
-);
-
-
-
-      {movies?.length > 0 ? (
-        <div className="container">
-          {movies.map((movie, index) => (
-            <MovieCards key={index} apiUrl={apiUrl} {...movie} />
-          ))}
-        </div>
-      ) : (
-        <h2 className="empty">😢 Filme não encontrado 😢</h2>
-      )}
-
-      <Footer
-        devn1={"Ana Geremias"}
-        devL1={"https://github.com/Najul1a"}
-        devn2={"Ana Lopes"}
-        devL2={"https://github.com/AnaChiaramonte"}
-        devn3={"Pedro Araujo"}
-        devL3={"https://github.com/PedroAraujosz"}
-      />
-    </div>
-    </>
-  )
-}
+   </div>
+   </div>
+  );
+};
 
 export default App;
