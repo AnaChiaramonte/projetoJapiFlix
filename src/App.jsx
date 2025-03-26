@@ -6,13 +6,15 @@ import lupa from "./assets/Lupa.svg";
 import MovieCards from "./movieCards/MovieCards";
 import Nuvem from "./assets/Nuvem.png";
 import Footer from "./components/footer/Footer";
-
+import CategoryFilter from "./components/categorias/Categorias"
 
     
   
 
 const App = () => {
 
+
+  
   const [search, setSearch] = useState("");
   const [movies, setMovies] = useState([]);
 
@@ -51,6 +53,7 @@ const App = () => {
           />
           <img onClick={() => searchMovies(search)} src={lupa} alt="" />
         </div>
+       
         <div className="container mt-4">
         <div className="row justify-content-center">
         {movies?.length > 0 ? (

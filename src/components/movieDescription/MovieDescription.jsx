@@ -19,24 +19,32 @@ const DescriptionModal = ({ apiUrl, movieID, click }) => {
     <div className="modal fade show d-block" tabIndex="-1" role="dialog">
       <div className="modal-dialog modal-dialog-centered modal-lg">
         <div className="modal-content bg-dark text-white">
-          
+        <div className="modal-header border-0 position-relative">
+  <h5 className="modal-title">{movieDesc.Title}</h5>
+  <button 
+    type="button" 
+    className="btn-close btn-close-white position-absolute" 
+    style={{ right: "15px", top: "15px" }} 
+    onClick={click}
+  ></button>
+</div>
+
           {/* Cabeçalho */}
-          <div className="modal-header border-0">
-            <h5 className="modal-title">{movieDesc.Title}</h5>
-            <button type="button" className="btn-close btn-close-white" onClick={click}></button>
+          <div className="modal-header border-0 justify-content-center ">
+            <h5 className="modal-title text-center">{movieDesc.Title}</h5>
           </div>
 
           {/* Corpo do modal */}
-          <div className="modal-body text-center">
+          <div className="modal-body text-center d-flex justify-content-center">
             <img 
               src={movieDesc.Poster} 
-              className="w-100 h-auto rounded " 
+              className="card d-flex align-items-center  " 
               alt={`Capa do filme ${movieDesc.Title}`} 
-              style={{ objectFit: "cover", maxHeight: "500px" }}
+              style={{maxHeight: "300px", }}
             />
             <div className="mt-3">
               <span className="badge bg-secondary">{movieDesc.Type}</span>
-              <h1 className="mt-1">{movieDesc.Title}</h1>
+              <h1 className="d-flex m-4 mt-4">{movieDesc.Title}</h1>
               <a 
                 href={`https://google.com/search?q=${encodeURIComponent(movieDesc.Title)}`} 
                 className="btn btn-light mt-2 font-monospace" 
